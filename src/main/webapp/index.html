@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Murach's Java Servlets and JSP</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css" />
-</head>
-<body>
-<h1>Join our email list</h1>
-<p>To join our email list, enter your name and email address below.</p>
+<form action="survey" method="post">
+    <label>First Name</label>
+    <input type="text" name="firstName"><br>
 
-<form action="emailList" method="post">
-    <input type="hidden" name="action" value="add"> <label>Email:</label>
-    <input type="email" name="email" required><br> <label>First
-    Name:</label> <input type="text" name="firstName" required><br>
+    <label>Last Name</label>
+    <input type="text" name="lastName"><br>
 
-    <label>Last Name:</label> <input type="text" name="lastName" required><br>
+    <label>Email</label>
+    <input type="email" name="email"><br>
 
-    <label>&nbsp;</label> <input type="submit" value="Join Now"
-                                 id="submit">
+    <label>Date of Birth</label>
+    <input type="date" name="dob"><br>
+
+    <p>How did you hear about us?</p>
+    <input type="radio" name="hearAbout" value="Search engine">Search engine
+    <input type="radio" name="hearAbout" value="Word of mouth">Word of mouth
+    <input type="radio" name="hearAbout" value="Social Media">Social Media
+    <input type="radio" name="hearAbout" value="Other">Other<br>
+
+    <p>Would you like to receive announcements?</p>
+    <input type="checkbox" name="announcement" value="cd">YES, about CDs<br>
+    <input type="checkbox" name="announcement" value="email">YES, email announcements<br>
+
+    <label>Please contact me by:</label>
+    <select name="contact">
+        <option value="Email or postal mail">Email or postal mail</option>
+        <option value="Email only">Email only</option>
+        <option value="Postal mail only">Postal mail only</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
 </form>
-</body>
-</html>

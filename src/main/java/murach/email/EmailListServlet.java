@@ -1,54 +1,30 @@
 package murach.email;
 
-import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-
+import java.io.IOException;
 import murach.business.User;
-import murach.data.UserDB;
 
 public class EmailListServlet extends HttpServlet {
-
     @Override
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        // Lấy dữ liệu từ form
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        String dob = request.getParameter("dob");
 
-        String url = "/index.html";
+        // Tạo đối tượng User
+        User user = new User(firstName, lastName, email, dob);
 
-        // get current action
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "join";  // default action
-        }
+        // Lưu user vào request để JSP lấy ra hiển thị
+        request.setAttribute("user", user);
 
-        // perform action and set URL to appropriate page
-        if (action.equals("join")) {
-            url = "/index.html"; // the "join" page
-        } else if (action.equals("add")) {
-            // get parameters from the request
-            String firstName = request.getParameter("firstName");
-            String lastName = request.getParameter("lastName");
-            String email = request.getParameter("email");
-
-            // store data in User object and save User object in db
-            User user = new User(firstName, lastName, email);
-            UserDB.insert(user);
-
-            // set User object in request object and set URL
-            request.setAttribute("user", user);
-            url = "/thanks.jsp"; // the "thanks" page
-        }
-
-        // forward request and response objects to specified URL
-        getServletContext()
-                .getRequestDispatcher(url)
-                .forward(request, response);
-    }
-    @Override
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
+        // Forward sang thanks.jsp
+        String url = "/thanks.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 }
