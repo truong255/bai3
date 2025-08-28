@@ -1,17 +1,14 @@
-<%@ page import="murach.business.User" %>
-<%
-    User user = (User) request.getAttribute("user");
-%>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
 <html>
-<head><title>Thanks</title></head>
+<head>
+    <title>Cảm ơn</title>
+</head>
 <body>
-    <h2>Thanks for joining our list!</h2>
-    <p>Here is the information that you entered:</p>
-    <ul>
-        <li>First name: <%= user.getFirstName() %></li>
-        <li>Last name: <%= user.getLastName() %></li>
-        <li>Email: <%= user.getEmail() %></li>
-        <li>Date of Birth: <%= user.getDob() %></li>
-    </ul>
+    <h2>Cảm ơn bạn đã đăng ký!</h2>
+    <p>First Name: ${user.firstName}</p>
+    <p>Last Name: ${user.lastName}</p>
+    <p>Email: ${user.email}</p>
+    <p>Ngày sinh: ${user.dob}</p>
 </body>
 </html>

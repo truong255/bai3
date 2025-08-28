@@ -1,32 +1,48 @@
-<form action="survey" method="post">
-    <label>First Name</label>
-    <input type="text" name="firstName"><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+</head>
+<body>
+    <h1>Survey</h1>
+    <p>If you have a moment, we’d appreciate it if you would fill out this survey.</p>
 
-    <label>Last Name</label>
-    <input type="text" name="lastName"><br>
+    <h3>Your information:</h3>
+    <form action="survey" method="post">
+        First Name: 
+        <input type="text" name="firstName" required><br><br>
 
-    <label>Email</label>
-    <input type="email" name="email"><br>
+        Last Name: 
+        <input type="text" name="lastName" required><br><br>
 
-    <label>Date of Birth</label>
-    <input type="date" name="dob"><br>
+        Email: 
+        <input type="email" name="email" required><br><br>
 
-    <p>How did you hear about us?</p>
-    <input type="radio" name="hearAbout" value="Search engine">Search engine
-    <input type="radio" name="hearAbout" value="Word of mouth">Word of mouth
-    <input type="radio" name="hearAbout" value="Social Media">Social Media
-    <input type="radio" name="hearAbout" value="Other">Other<br>
+        Date of Birth: 
+        <input type="date" name="dob" required><br><br>
 
-    <p>Would you like to receive announcements?</p>
-    <input type="checkbox" name="announcement" value="cd">YES, about CDs<br>
-    <input type="checkbox" name="announcement" value="email">YES, email announcements<br>
+        <h3>How did you hear about us?</h3>
+        <input type="radio" name="hearAbout" value="Search engine" required> Search engine
+        <input type="radio" name="hearAbout" value="Word of mouth"> Word of mouth
+        <input type="radio" name="hearAbout" value="Social Media"> Social Media
+        <input type="radio" name="hearAbout" value="Other"> Other
+        <br><br>
 
-    <label>Please contact me by:</label>
-    <select name="contact">
-        <option value="Email or postal mail">Email or postal mail</option>
-        <option value="Email only">Email only</option>
-        <option value="Postal mail only">Postal mail only</option>
-    </select><br><br>
+        <h3>Would you like to receive announcements about new CDs and special offers?</h3>
+        <input type="checkbox" name="offers" value="Yes"> YES, I’d like that.<br>
+        <input type="checkbox" name="emailOffers" value="Yes"> YES, please send me email announcements.<br><br>
 
-    <input type="submit" value="Submit">
-</form>
+        Please contact me by: 
+        <select name="contactMethod" required>
+            <option value="">--Select--</option>
+            <option value="Email or postal mail">Email or postal mail</option>
+            <option value="Email only">Email only</option>
+            <option value="Postal mail only">Postal mail only</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
